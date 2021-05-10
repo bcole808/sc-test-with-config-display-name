@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import styled from "styled-components/macro";
+
+const MyComponent = styled.div.withConfig({
+  displayName: "MyDisplayName",
+  shouldForwardProp: (prop, defaultValidatorFn) => defaultValidatorFn(prop),
+})`
+  border: 1px solid green;
+  padding: 10px;
+  background: lightgreen;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MyComponent>MyComponent</MyComponent>
+      Inspect the component above and see that the provided display name is not
+      used.
     </div>
   );
 }
