@@ -2,7 +2,6 @@ import "./App.css";
 import styled from "styled-components/macro";
 
 const MyComponent = styled.div.withConfig({
-  displayName: "MyDisplayName",
   shouldForwardProp: (prop, defaultValidatorFn) => defaultValidatorFn(prop),
 })`
   border: 1px solid green;
@@ -19,8 +18,8 @@ function App() {
   return (
     <div>
       <MyComponent>MyComponent</MyComponent>
-      Inspect the component above and see that the provided display name is not
-      used.
+      Inspect the component above and see that the display name correctly
+      matches "MyComponent"
     </div>
   );
 }
